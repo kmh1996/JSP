@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+/**
+ * 대상 : div text
+ * 기능 : 문자열 변경 (cat => dog)
+ * 함수 : html(), split(), join()
+ */
+	$(function(){
+		$("input[type=button]").click(function(){
+			var text = "A,B,C,D,E,F".split(",");
+			for(var i=0; i<text.length; i++){
+				console.log(i+":"+text[i]);
+			}
+			var test = text.join("|");
+			console.log(test);
+			var html = $("#target").html().split("cat");
+			//$("#target").html(html.join("dog"));
+			$("#target").html($("#target").html().replaceAll("cat","dog"));			
+		});
+	});
+</script>
+
+</head>
+
+<body>
+	<div id="target"
+		style="color: rgb(255, 255, 255); width: 315px; height: 180px; float: left; border: 1px solid rgb(34, 34, 34); background-color: rgb(102, 205, 170); margin: 10px; padding: 5px; background-position: initial initial; background-repeat: initial initial;">
+		<span class="title" style="color: rgb(51, 51, 51);">#target</span><br>
+		<br>cat cat cat <br>cat cat cat <br>cat cat cat <br>
+	</div>
+	<input type="button" value="run"/>
+</body>
+</html>
